@@ -212,7 +212,7 @@
 .e3 .demo-band { background: var(--g-soft); color: #1F1F1F; }
 .e3 .demo-band .h2 { border-top-color: #1F1F1F; color: #1F1F1F; } .e3 .demo-band .lede { color: #1F1F1F; }
 .e3 .demo-band .demo-copy li { border-bottom-color: rgba(31,31,31,.25); }
-.e3 .demo-band form.demo { color: var(--ink); border-top-color: #1F1F1F; box-shadow: none; background: #1F1F1F; }
+.e3 .demo-band .demo-card { color: var(--ink); border-top-color: #1F1F1F; box-shadow: none; background: #1F1F1F; }
 .e3 .demo-band .demo-copy .say { margin: 32px 0 0; font: 400 20px/1.35 var(--f-body); }
 .e3 .closing { background: var(--g-soft); color: #1F1F1F; }
 .e3 .closing .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; padding-block: 88px; }
@@ -221,8 +221,8 @@
 .e3 .closing .btn { background: #1F1F1F; color: var(--ink); }
 .e3 .demo-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; }
 .e3 .demo-copy { grid-column: span 5; } .e3 .demo-copy ul { margin: 16px 0 0; padding: 0; list-style: none; font: 400 16px/1.4 var(--f-disp); } .e3 .demo-copy li { padding: 12px 0; border-bottom: 1px solid var(--line); }
-.e3 form.demo { grid-column: 7 / span 6; padding: 40px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line); border-top: 4px solid var(--g); }
-.e3 form.demo h3 { margin: 0; font: 300 28px/1 var(--f-disp); text-transform: uppercase; }
+.e3 .demo-card { grid-column: 7 / span 6; padding: 40px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line); border-top: 4px solid var(--g); }
+.e3 .demo-card h3 { margin: 0; font: 300 28px/1 var(--f-disp); text-transform: uppercase; }
 .e3 .field { display: block; margin-top: 20px; color: var(--ink-2); font: 500 12px/1 var(--f-disp); letter-spacing: .08em; text-transform: uppercase; }
 .e3 .input { display: block; width: 100%; box-sizing: border-box; margin-top: 10px; padding: 0 16px; height: 52px; background: #262626; border: 0; box-shadow: inset 0 0 0 1px rgba(233,233,233,.2); color: var(--ink); font: 400 16px/1 var(--f-disp); }
 .e3 textarea.input { height: 132px; padding-top: 14px; resize: vertical; line-height: 1.4; }
@@ -247,7 +247,7 @@
 
 @media (max-width: 900px) {
   .e3 .hero .wrap.top, .e3 .p-grid, .e3 .core-grid, .e3 .head12, .e3 .open, .e3 .faq-grid, .e3 .demo-grid, .e3 footer .top, .e3 .q-feat { grid-template-columns: 1fr; }
-  .e3 .hero-copy, .e3 .hero-viz, .e3 .p-head, .e3 .p-side, .e3 .p-list, .e3 .steps, .e3 .conop, .e3 .head12 > div, .e3 .head12 > .lede, .e3 .open > div, .e3 .chips, .e3 .faq-grid .h2, .e3 .faq, .e3 .demo-copy, .e3 form.demo, .e3 footer .say, .e3 footer .cols, .e3 .q-body { grid-column: auto; }
+  .e3 .hero-copy, .e3 .hero-viz, .e3 .p-head, .e3 .p-side, .e3 .p-list, .e3 .steps, .e3 .conop, .e3 .head12 > div, .e3 .head12 > .lede, .e3 .open > div, .e3 .chips, .e3 .faq-grid .h2, .e3 .faq, .e3 .demo-copy, .e3 .demo-card, .e3 footer .say, .e3 footer .cols, .e3 .q-body { grid-column: auto; }
   .e3 .hero .wrap.top { padding-block: calc(65px + 32px) 48px; gap: 24px; } .e3 .hero-copy, .e3 .hero h1, .e3 .hero .kick { grid-column: 1 / -1; }
   .e3 .hero::after { background: linear-gradient(180deg, rgba(20,20,20,.55) 0%, rgba(20,20,20,.45) 40%, rgba(20,20,20,.75) 100%); }
   .e3 .fleet .wrap { min-height: 0; } .e3 .fleet .hud { flex-wrap: wrap; } .e3 .fleet .hud .meter { text-align: left; } .e3 .fleet .dots { justify-content: flex-start; } .e3 .fleet-copy, .e3 .hero-viz { grid-column: 1 / -1; } .e3 .hero-viz { height: 380px; margin-right: 0; order: -1; } .e3 .hud .meter { min-width: 0; }
@@ -257,7 +257,7 @@
   .e3 .personas, .e3 .modes, .e3 .q-grid { grid-template-columns: 1fr; } .e3 .plats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .e3 .rtb { grid-template-columns: 1fr 1fr; } .e3 .cats { grid-template-columns: 1fr; gap: 12px; }
   .e3 .logos-row { grid-template-columns: 1fr; } .e3 .logos-row .rule { display: none; }
-  .e3 .q-mark { font-size: 96px; } .e3 form.demo { padding: 24px; } .e3 .two { grid-template-columns: 1fr; }
+  .e3 .q-mark { font-size: 96px; } .e3 .demo-card { padding: 24px; } .e3 .two { grid-template-columns: 1fr; }
   .e3 footer .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) { .e3 .marq-track { animation: none; } .e3 .wordmark path, .e3 .hud .track i, .e3 .hud .track b { transition: none; } }
@@ -387,7 +387,7 @@
 .e3 #faq { background: var(--bg-2); }
 .e3 .posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 56px; }
 .e3 .post { display: block; color: inherit; text-decoration: none; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line); }
-.e3 .post .img { aspect-ratio: 16 / 9; background: radial-gradient(60% 70% at 50% 45%, #2E2E2E, #1A1A1A); display: flex; align-items: center; justify-content: center; color: var(--mute); font: 500 12px/1 var(--f-disp); letter-spacing: .06em; text-transform: uppercase; }
+.e3 .post .img { aspect-ratio: 16 / 9; background-size: cover !important; background-position: center !important; overflow: hidden; background: radial-gradient(60% 70% at 50% 45%, #2E2E2E, #1A1A1A); display: flex; align-items: center; justify-content: center; color: var(--mute); font: 500 12px/1 var(--f-disp); letter-spacing: .06em; text-transform: uppercase; }
 .e3 .post .t { padding: 22px 24px 26px; } .e3 .post h3 { margin: 0; font: 400 24px/1.15 var(--f-body); } .e3 .post p { margin: 10px 0 0; color: var(--ink-2); font: 400 15px/1.5 var(--f-body); }
 .e3 .post:hover h3 { color: var(--g); }
 .e3 .posts-note { margin: 16px 0 0; color: var(--mute); font: 400 13px/1.4 var(--f-disp); }
@@ -619,6 +619,11 @@
 @media (max-width: 1000px) { .e3 .p-four { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .e3 .p-four { grid-template-columns: 1fr; gap: 24px; } }
 
+
+/* load order: animated pieces stay hidden until their script (or model) is ready, then fade in; CSS failsafe reveals after 6s */
+.e3 #e3h-3d, .e3 #hero3d, .e3 #stk-stage, .e3 #ig-lines { transition: opacity .6s ease; }
+.e3 #e3h-3d:not(.anim-ready), .e3 #hero3d:not(.anim-ready), .e3 #stk-stage:not(.anim-ready), .e3 #ig-lines:not(.anim-ready) { opacity: 0; animation: e3-failsafe .01s linear 6s forwards; }
+@keyframes e3-failsafe { to { opacity: 1; } }
 
 /* Squarespace host overrides: the live site header sits above the page, not over the hero */
 .e3 .hero { margin-top: 0 !important; }

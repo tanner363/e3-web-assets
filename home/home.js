@@ -8,8 +8,53 @@
   // footer wordmark: outline at rest, fills left to right when it scrolls into view
 
 
-  // demo form: prototype only
-  const df = document.getElementById('demo-form'); if (df && !df.dataset.live) df.addEventListener('submit', e => { e.preventDefault(); document.getElementById('d-sent').hidden = false; });
+
+  // demo: the live HubSpot form (same form + Chili Piper router as /demo-request), styled to match
+  (function () {
+    const box = document.getElementById('e3-hsform'); if (!box) return;
+    const HSCSS = "@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&display=swap');"
+      + "html,body{background:transparent!important;margin:0;padding:0}"
+      + ".hs-form{font-family:'Inter Tight',Arial,sans-serif;color:#fff}"
+      + ".hs-form fieldset{max-width:none!important}"
+      + ".hs-form .hs-form-field{margin:20px 0 0}"
+      + ".hs-form label:not(.hs-error-msg){display:block;margin:0 0 10px;color:#BDBDBD!important;font:500 12px/1 'Inter Tight',Arial,sans-serif!important;letter-spacing:.08em;text-transform:uppercase}"
+      + ".hs-form .hs-input{display:block;width:100%!important;box-sizing:border-box;height:52px;padding:0 16px!important;background:#262626!important;border:0!important;border-radius:0!important;box-shadow:inset 0 0 0 1px rgba(233,233,233,.2)!important;color:#fff!important;font:400 16px/1 'Inter Tight',Arial,sans-serif!important;outline:0}"
+      + ".hs-form textarea.hs-input{height:132px;padding-top:14px!important;line-height:1.4!important}"
+      + ".hs-form select.hs-input{appearance:none}"
+      + ".hs-form .hs-input:focus{box-shadow:inset 0 0 0 1px #2BD900!important}"
+      + ".hs-form .hs-input::placeholder{color:#6E6E6E}"
+      + ".hs-form .legal-consent-container,.hs-form .legal-consent-container p,.hs-form .hs-richtext{margin-top:16px;color:#8E8E8E!important;font:400 12px/1.5 'Inter Tight',Arial,sans-serif!important}"
+      + ".hs-form .legal-consent-container a{color:#BDBDBD!important}"
+      + ".hs-form .hs_submit{margin-top:24px}"
+      + ".hs-form .hs-button{display:inline-flex;align-items:center;height:48px;padding:0 22px!important;background:#2BD900!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:#1F1F1F!important;font:700 13px/1 'Inter Tight',Arial,sans-serif!important;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}"
+      + ".hs-form .hs-button:hover{background:#A1FF8A!important}"
+      + ".hs-error-msgs{list-style:none;margin:8px 0 0;padding:0}.hs-error-msg,.hs-error-msgs label{color:#FF7A66!important;font:400 13px/1.3 'Inter Tight',Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important}"
+      + ".submitted-message{color:#fff;font:400 20px/1.4 'Inter Tight',Arial,sans-serif}";
+    const add = (src, ok) => { if ([...document.scripts].some(x => x.src.split('?')[0] === src)) return ok && setTimeout(ok, 0); const sc = document.createElement('script'); sc.src = src; sc.async = true; if (ok) sc.onload = ok; document.head.appendChild(sc); };
+    const make = () => {
+      if (!window.hbspt) return;
+      box.innerHTML = '';
+      window.hbspt.forms.create({ portalId: '21958698', formId: '6d1cd722-e7e6-4767-bb1d-e70eedadc32d', region: 'na2', sfdcCampaignId: '701Dn000000E6CKIA0', target: '#e3-hsform', css: HSCSS,
+        onFormReady: f => { if (window.ChiliPiper && window.ChiliPiper.setForm) window.ChiliPiper.setForm(f); } });
+    };
+    const go = () => { add('https://epsilon3.chilipiper.com/concierge-js/cjs/concierge.js', () => { try { window.ChiliPiper && window.ChiliPiper.deploy('epsilon3', 'inbound-router', { formType: 'Hubspot' }); } catch (e) {} }); add('https://js-na2.hsforms.net/forms/embed/v2.js', make); };
+    if ('IntersectionObserver' in window) { const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); go(); } }, { rootMargin: '1200px' }); io.observe(box); } else go();
+  })();
+
+  // blog: the three latest posts from Behind the Console, pulled live
+  (function () {
+    const wrap = document.getElementById('e3-posts'); if (!wrap || !window.fetch) return;
+    const esc = t => String(t || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const strip = h => { const d = document.createElement('div'); d.innerHTML = h || ''; return d.textContent.trim(); };
+    fetch('/behind-the-console?format=json', { credentials: 'same-origin' }).then(r => r.ok ? r.json() : null).then(j => {
+      const items = j && j.items ? j.items.slice(0, 3) : []; if (!items.length) return;
+      wrap.innerHTML = items.map(i => {
+        const img = i.assetUrl ? i.assetUrl + (i.assetUrl.indexOf('?') < 0 ? '?format=750w' : '') : '';
+        const ex = strip(i.excerpt) || '';
+        return '<a class="post" href="' + esc(i.fullUrl) + '"><div class="img"' + (img ? ' style="background:#1A1A1A url(\'' + esc(img) + '\') center/cover no-repeat"' : '') + '></div><div class="t"><h3>' + esc(i.title) + '</h3>' + (ex && ex !== i.title ? '<p>' + esc(ex) + '</p>' : '') + '</div></a>';
+      }).join('');
+    }).catch(() => {});
+  })();
 
   // CONOP: step through the program, lighting each node and its link to the core
   const steps = Array.from(document.querySelectorAll('#steps li'));
@@ -575,9 +620,10 @@
     });
 
     /* track live stages + their last visual state so a late GLB swaps in seamlessly */
-    const live = new Set(), P = Stage.prototype;
+    const live = new Set(), failed = {}, P = Stage.prototype;
     const _set = P.set, _show = P.show, _prog = P.progress, _use = P.setUsage, _plume = P.setPlume;
-    P.set = function (k) { live.add(this); return _set.call(this, k); };
+    const markReady = st => { const c = st.r && st.r.domElement; if (c) c.classList.add('anim-ready'); };
+    P.set = function (k) { live.add(this); const out = _set.call(this, k); if (ready[k] || failed[k] || !GLB[k]) markReady(this); return out; };
     P.show = function (m, a, d) { this._last = ['show', [m, false]]; return _show.call(this, m, a, d); };
     P.progress = function (w, s) { this._last = ['progress', [w, s]]; return _prog.call(this, w, s); };
     P.setUsage = function (p, d) { this._usage = [p, d]; return _use.call(this, p, d); };
@@ -599,7 +645,7 @@
       const mark = n => { const t = window.__E3T; if (t) t[key + '.' + n] = Math.round(performance.now()); };
       mark('start');
       const ok = gltf => { mark('parsed'); ready[key] = bake(gltf, GLB[key]); swapIn(key); mark('shown'); return true; };
-      const fail = err => { console.warn('[E3D] GLB failed, keeping procedural', key, err); return false; };
+      const fail = err => { console.warn('[E3D] GLB failed, keeping procedural', key, err); failed[key] = true; live.forEach(st => { if (st.key === key) markReady(st); }); return false; };
       if (AS_JS) {
         pending[key] = new Promise((res, rej) => {
           const box = window.__E3GLB = window.__E3GLB || {};
@@ -885,8 +931,8 @@
   function play() { scatter(); setTimeout(assemble, 1400); }
   btns.forEach(b => b.addEventListener('click', () => { root.dataset.mode = b.dataset.m; btns.forEach(x => x.setAttribute('aria-pressed', x === b)); if (root.dataset.phase !== 'one') assemble(); }));
   document.getElementById('stk-replay').addEventListener('click', () => { if (!reduce) play(); });
-  if (reduce || !('IntersectionObserver' in window)) { root.dataset.phase = 'one'; return; }
-  const ready = () => scatter();
+  if (reduce || !('IntersectionObserver' in window)) { root.dataset.phase = 'one'; stage.classList.add('anim-ready'); return; }
+  const ready = () => { scatter(); requestAnimationFrame(() => stage.classList.add('anim-ready')); };
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(ready); else ready();
   let done = false;
   new IntersectionObserver((es, io) => { if (!done && es[0].isIntersecting) { done = true; io.disconnect(); setTimeout(assemble, 900); } }, { threshold: 0, rootMargin: '0px 0px -45% 0px' }).observe(stage);
@@ -908,7 +954,7 @@
       const d = `M${x},${y} C${mx},${y} ${mx},${ty} ${cl},${ty}`; out += `<path d="${d}"/><path class="flow" style="--d:${(i * .37).toFixed(2)}s" d="${d}"/>`; });
     ig.querySelectorAll('[data-r]').forEach((li, i) => { const b = li.getBoundingClientRect(), x = b.left - s.left, y = b.top - s.top + b.height / 2, sy = cy + (i - 3.5) * 8, mx = (cr + x) / 2;
       const d = `M${cr},${sy} C${mx},${sy} ${mx},${y} ${x},${y}`; out += `<path d="${d}"/><path class="flow" style="--d:${(1.1 + i * .31).toFixed(2)}s" d="${d}"/>`; });
-    svg.innerHTML = out;
+    svg.innerHTML = out; svg.classList.add('anim-ready');
   }
   let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 150); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw); addEventListener('load', draw); draw();
