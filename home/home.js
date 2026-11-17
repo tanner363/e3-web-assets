@@ -789,7 +789,12 @@
   const tabs = Array.from(root.querySelectorAll('.ba-tabs button'));
   const thumb = root.querySelector('.ba-thumb'), meter = thumb && thumb.querySelector('i'), sweep = root.querySelector('.ba-sweep');
   const DWELL = { before: 3200, after: 5600 };
-  function placeThumb() { const t = tabs.find(b => b.dataset.s === root.dataset.state) || tabs[0]; if (!thumb) return; thumb.style.setProperty('--tx', t.offsetLeft + 'px'); thumb.style.setProperty('--tw', t.offsetWidth + 'px'); }
+  /* selected look = a copy of the labels on the fill, clipped to the thumb, so text and fill always move together */
+  const tabsEl = root.querySelector('.ba-tabs'), on = document.createElement('span'); on.className = 'ba-on'; on.setAttribute('aria-hidden', 'true');
+  on.innerHTML = tabs.map(b => '<b>' + b.textContent + '</b>').join(''); if (tabsEl && thumb) tabsEl.insertBefore(on, thumb.nextSibling);
+  function placeThumb() { const t = tabs.find(b => b.dataset.s === root.dataset.state) || tabs[0]; if (!thumb) return; const W = tabsEl.clientWidth, l = t.offsetLeft, w = t.offsetWidth;
+    thumb.style.setProperty('--tx', l + 'px'); thumb.style.setProperty('--tw', w + 'px'); on.style.clipPath = 'inset(0 ' + Math.max(0, W - l - w) + 'px 0 ' + l + 'px)'; }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeThumb); addEventListener('resize', placeThumb);
   function runMeter(ms) { if (!meter) return; meter.classList.remove('run'); void meter.offsetWidth; if (ms) { meter.style.setProperty('--dwell', ms + 'ms'); meter.classList.add('run'); } }
   function doSweep(state) { if (!sweep || reduce) return; sweep.className = 'ba-sweep'; void sweep.offsetWidth; sweep.querySelector('b').textContent = state === 'after' ? 'With Epsilon3 →' : '← Before'; sweep.classList.add(state === 'after' ? 'to-a' : 'to-b'); }
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

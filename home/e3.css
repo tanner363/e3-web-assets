@@ -415,8 +415,12 @@
 .e3 .ba-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; margin-bottom: 16px; }
 .e3 .ba-tabs { position: relative; display: inline-flex; border: 1px solid var(--line); isolation: isolate; }
 .e3 .ba-tabs button { position: relative; z-index: 1; appearance: none; border: 0; background: transparent; color: var(--ink-2); font: 500 12px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; padding: 13px 18px; cursor: pointer; transition: color .45s; }
-.e3 .ba-tabs button[aria-selected="true"] { color: var(--bg); }
-.e3 .ba-tabs button[data-s="after"][aria-selected="true"] { color: #1F1F1F; }
+.e3 .ba-tabs button[aria-selected="true"] { color: var(--ink-2); }
+.e3 .ba-on { position: absolute; z-index: 2; inset: 0; display: flex; pointer-events: none; background: var(--ink); color: var(--bg); transition: clip-path .7s cubic-bezier(.7,0,.2,1), background-color .7s; }
+.e3 .ba[data-state="after"] .ba-on { background: var(--g); color: #1F1F1F; }
+.e3 .ba-on b { font: 500 12px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; padding: 13px 18px; white-space: nowrap; }
+.e3 .ba-tabs button { white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .e3 .ba-on { transition: none; } }
 /* sliding thumb: travels between the two states so the switch is unmissable */
 .e3 .ba-thumb { position: absolute; z-index: 0; top: 0; bottom: 0; left: 0; width: var(--tw, 50%); transform: translateX(var(--tx, 0)); background: var(--ink); transition: transform .7s cubic-bezier(.7,0,.2,1), width .7s cubic-bezier(.7,0,.2,1), background-color .7s; }
 .e3 .ba[data-state="after"] .ba-thumb { background: var(--g); }
@@ -477,6 +481,8 @@
   .e3 .ba-rows li { grid-template-columns: 22px 1fr; gap: 2px 8px; padding: 6px 14px; font-size: 13.5px; } .e3 .ba-rows li em { grid-column: 2; font-size: 10.5px; } .e3 .ba-rf { padding: 8px 14px 12px; }
 }
 @media (prefers-reduced-motion: reduce) { .e3 .ba-card, .e3 .ba-rec, .e3 .ba-rows li { transition: none !important; animation: none !important; } .e3 .ba-lines path { animation: none; } }
+
+.e3 .ba .ba-tabs .ba-thumb { background: transparent; z-index: 3; pointer-events: none; }
 
 /* 109 tools, one record */
 .e3 .stack { background: var(--bg-2); }
