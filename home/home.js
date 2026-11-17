@@ -12,29 +12,11 @@
   // demo: the live HubSpot form (same form + Chili Piper router as /demo-request), styled to match
   (function () {
     const box = document.getElementById('e3-hsform'); if (!box) return;
-    const HSCSS = "@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&display=swap');"
-      + "html,body{background:transparent!important;margin:0;padding:0}"
-      + ".hs-form{font-family:'Inter Tight',Arial,sans-serif;color:#fff}"
-      + ".hs-form fieldset{max-width:none!important}"
-      + ".hs-form .hs-form-field{margin:20px 0 0}"
-      + ".hs-form label:not(.hs-error-msg){display:block;margin:0 0 10px;color:#BDBDBD!important;font:500 12px/1 'Inter Tight',Arial,sans-serif!important;letter-spacing:.08em;text-transform:uppercase}"
-      + ".hs-form .hs-input{display:block;width:100%!important;box-sizing:border-box;height:52px;padding:0 16px!important;background:#262626!important;border:0!important;border-radius:0!important;box-shadow:inset 0 0 0 1px rgba(233,233,233,.2)!important;color:#fff!important;font:400 16px/1 'Inter Tight',Arial,sans-serif!important;outline:0}"
-      + ".hs-form textarea.hs-input{height:132px;padding-top:14px!important;line-height:1.4!important}"
-      + ".hs-form select.hs-input{appearance:none}"
-      + ".hs-form .hs-input:focus{box-shadow:inset 0 0 0 1px #2BD900!important}"
-      + ".hs-form .hs-input::placeholder{color:#6E6E6E}"
-      + ".hs-form .legal-consent-container,.hs-form .legal-consent-container p,.hs-form .hs-richtext{margin-top:16px;color:#8E8E8E!important;font:400 12px/1.5 'Inter Tight',Arial,sans-serif!important}"
-      + ".hs-form .legal-consent-container a{color:#BDBDBD!important}"
-      + ".hs-form .hs_submit{margin-top:24px}"
-      + ".hs-form .hs-button{display:inline-flex;align-items:center;height:48px;padding:0 22px!important;background:#2BD900!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:#1F1F1F!important;font:700 13px/1 'Inter Tight',Arial,sans-serif!important;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}"
-      + ".hs-form .hs-button:hover{background:#A1FF8A!important}"
-      + ".hs-error-msgs{list-style:none;margin:8px 0 0;padding:0}.hs-error-msg,.hs-error-msgs label{color:#FF7A66!important;font:400 13px/1.3 'Inter Tight',Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important}"
-      + ".submitted-message{color:#fff;font:400 20px/1.4 'Inter Tight',Arial,sans-serif}";
     const add = (src, ok) => { if ([...document.scripts].some(x => x.src.split('?')[0] === src)) return ok && setTimeout(ok, 0); const sc = document.createElement('script'); sc.src = src; sc.async = true; if (ok) sc.onload = ok; document.head.appendChild(sc); };
     const make = () => {
       if (!window.hbspt) return;
       box.innerHTML = '';
-      window.hbspt.forms.create({ portalId: '21958698', formId: '6d1cd722-e7e6-4767-bb1d-e70eedadc32d', region: 'na2', sfdcCampaignId: '701Dn000000E6CKIA0', target: '#e3-hsform', css: HSCSS,
+      window.hbspt.forms.create({ portalId: '21958698', formId: '6d1cd722-e7e6-4767-bb1d-e70eedadc32d', region: 'na2', sfdcCampaignId: '701Dn000000E6CKIA0', target: '#e3-hsform', css: '',
         onFormReady: f => { if (window.ChiliPiper && window.ChiliPiper.setForm) window.ChiliPiper.setForm(f); } });
     };
     const go = () => { add('https://epsilon3.chilipiper.com/concierge-js/cjs/concierge.js', () => { try { window.ChiliPiper && window.ChiliPiper.deploy('epsilon3', 'inbound-router', { formType: 'Hubspot' }); } catch (e) {} }); add('https://js-na2.hsforms.net/forms/embed/v2.js', make); };

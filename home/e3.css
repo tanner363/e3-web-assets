@@ -625,6 +625,26 @@
 .e3 #e3h-3d:not(.anim-ready), .e3 #hero3d:not(.anim-ready), .e3 #stk-stage:not(.anim-ready), .e3 #ig-lines:not(.anim-ready) { opacity: 0; animation: e3-failsafe .01s linear 6s forwards; }
 @keyframes e3-failsafe { to { opacity: 1; } }
 
+/* HubSpot demo form, rendered inline in .demo-card (css:'' turns off HubSpot's own styles) */
+.e3 #e3-hsform .hs-form { font-family: var(--f-disp); color: var(--ink); }
+.e3 #e3-hsform fieldset { max-width: none !important; border: 0; margin: 0; padding: 0; }
+.e3 #e3-hsform .hs-form-field { margin: 20px 0 0; }
+.e3 #e3-hsform .hs-form-field > label { display: block; margin: 0 0 10px; color: var(--ink-2); font: 500 12px/1 var(--f-disp); letter-spacing: .08em; text-transform: uppercase; }
+.e3 #e3-hsform .hs-form-required { color: var(--g); margin-left: 2px; }
+.e3 #e3-hsform .input { height: auto; margin: 0; padding: 0; background: none; box-shadow: none; }
+.e3 #e3-hsform .hs-input { display: block; width: 100% !important; box-sizing: border-box; height: 52px; padding: 0 16px; background: #262626; border: 0; border-radius: 0; box-shadow: inset 0 0 0 1px rgba(233,233,233,.2); color: #fff; font: 400 16px/1 var(--f-disp); outline: 0; }
+.e3 #e3-hsform textarea.hs-input { height: 132px; padding-top: 14px; line-height: 1.4; }
+.e3 #e3-hsform .hs-input:focus { box-shadow: inset 0 0 0 1px var(--g); }
+.e3 #e3-hsform .hs-input::placeholder { color: #6E6E6E; }
+.e3 #e3-hsform .legal-consent-container, .e3 #e3-hsform .legal-consent-container p, .e3 #e3-hsform .hs-richtext { margin: 16px 0 0; color: var(--mute); font: 400 12px/1.5 var(--f-disp); }
+.e3 #e3-hsform .legal-consent-container a, .e3 #e3-hsform .hs-richtext a { color: var(--ink-2); }
+.e3 #e3-hsform .hs_submit { margin-top: 24px; }
+.e3 #e3-hsform .hs-button { display: inline-flex; align-items: center; height: 48px; padding: 0 22px; background: var(--g); border: 0; border-radius: 0; color: #1F1F1F; font: 700 13px/1 var(--f-disp); letter-spacing: .05em; text-transform: uppercase; cursor: pointer; }
+.e3 #e3-hsform .hs-button:hover { background: #A1FF8A; }
+.e3 #e3-hsform .hs-error-msgs { list-style: none; margin: 8px 0 0; padding: 0; }
+.e3 #e3-hsform .hs-error-msg, .e3 #e3-hsform .hs-error-msgs label { color: #FF7A66; font: 400 13px/1.3 var(--f-disp); text-transform: none; letter-spacing: 0; }
+.e3 #e3-hsform .submitted-message { color: #fff; font: 400 20px/1.4 var(--f-disp); }
+
 /* Squarespace host overrides: the live site header sits above the page, not over the hero */
 .e3 .hero { margin-top: 0 !important; }
 .e3 .hero .wrap.top { padding-block: 56px clamp(48px, 8vh, 96px); min-height: calc(100vh - 90px); min-height: calc(100svh - 90px); }
