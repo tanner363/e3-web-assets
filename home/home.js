@@ -266,7 +266,7 @@
     const fillMat = new T.MeshBasicMaterial({ color: 0xe9e9e9 });
     const fill = new T.Mesh(new T.BoxGeometry(0.08, 1, 0.08), fillMat); fill.position.set(2.15, -1.8, 0.8); g.add(fill);
     const tick = box(0.2, 0.02, 0.1, M.satin, 2.15, -1.8 + 2.6 * 0.9, 0.8); g.add(tick);
-    const lampMat = new T.MeshBasicMaterial({ color: 0x2bd900 });
+    const lampMat = new T.MeshBasicMaterial({ color: new T.Color(0x2bd900).convertSRGBToLinear(), toneMapped: false });
     const lamp = new T.Mesh(new T.BoxGeometry(0.16, 0.16, 0.16), lampMat); lamp.position.set(-1.2, 0.95, 0.8); g.add(lamp);
     const post = box(0.04, 0.55, 0.04, S, -1.2, 0.62, 0.8); g.add(post);
     a.group.position.y = 0.05;
@@ -307,13 +307,14 @@
       this.env = studioEnv(r);
       this.M = materials(this.env);
       this.solidMats = Object.values(this.M);
-      this.wireMat = new T.LineBasicMaterial({ color: 0x2bd900, transparent: true, opacity: 0.75 });
+      const BRAND_G = () => new T.Color(0x2bd900).convertSRGBToLinear(); this.brandG = BRAND_G;
+      this.wireMat = new T.LineBasicMaterial({ color: BRAND_G(), transparent: true, opacity: 0.9, toneMapped: false });
       this.clipSolid = new T.Plane(new T.Vector3(0, -1, 0), 10);
       this.clipWire = new T.Plane(new T.Vector3(0, -1, 0), 10);
       this.clipWireLo = new T.Plane(new T.Vector3(0, 1, 0), 100);
       this.solidMats.forEach(m => { m.clippingPlanes = [this.clipSolid]; });
       this.wireMat.clippingPlanes = [this.clipWire, this.clipWireLo];
-      this.wireMatD = new T.LineBasicMaterial({ color: 0x2bd900, transparent: true, opacity: 0.75 }); this.wireMatD.clippingPlanes = this.wireMat.clippingPlanes; this.density = 1;
+      this.wireMatD = new T.LineBasicMaterial({ color: BRAND_G(), transparent: true, opacity: 0.9, toneMapped: false }); this.wireMatD.clippingPlanes = this.wireMat.clippingPlanes; this.density = 1;
       this.rx = 0; this.rz = 0;
       this.scene.add(new T.AmbientLight(0xffffff, 0.1));
       // clay lighting: raking key from the left, rim from back right, so form reads on matte surfaces
@@ -405,7 +406,7 @@
       const m = this.asset && this.asset.meter; if (!m) return;
       const h = Math.max(0.001, m.h * pct); m.fill.scale.y = h; m.fill.position.y = m.base + h / 2;
       m.mat.color.set(due ? 0xffffff : 0xb9b9b9);
-      this.asset.lamp.color.set(due ? 0xffffff : 0x2bd900);
+      this.asset.lamp.color.set(due ? 0xffffff : 0x2bd900).convertSRGBToLinear();
       this.loop();
     }
     loop() {
