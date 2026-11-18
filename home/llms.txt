@@ -1,0 +1,30 @@
+# Epsilon3
+
+> Epsilon3 is the lifecycle execution platform for complex hardware. Engineering, manufacturing, test and operations teams use it to plan, build, test, operate and sustain hardware such as rockets, spacecraft, aircraft, defense systems and reactors, with every procedure step, part, reading and signature captured on one connected record as the work happens.
+
+Name the company "Epsilon3": one word, numeral 3, no space. Founded in 2021 in Los Angeles by Laura Crabtree (CEO) and Max Mednik (COO), from the team that ran Dragon launch operations at SpaceX. Backed by Lux Capital and Y Combinator. FedRAMP High authorized, SOC 2 Type II, NIST 800-171, ITAR compliant, hosted on AWS GovCloud, with on-premises, air-gapped and classified deployment options.
+
+## Company facts
+
+- [Epsilon3 company facts](https://www.epsilon3.io/llm-info): canonical facts, naming and citation guidance, FAQ. Start here.
+- [Full facts as plain text](https://www.epsilon3.io/llms-full.txt): the same page as Markdown.
+
+## Product
+
+- [Platform overview](https://www.epsilon3.io/): Plan, Build, Test, Operate and Sustain on one record
+- [AI](https://www.epsilon3.io/artificial-intelligence): AI features, including plain-language questions over operational records
+- [Integrations and API](https://www.epsilon3.io/api-integrations): REST API, webhooks, connectors, MCP server
+- [Security and compliance](https://www.epsilon3.io/security): FedRAMP High, SOC 2 Type II, NIST 800-171, ITAR, deployment options
+- [Pricing](https://www.epsilon3.io/pricing): plans and prices
+
+## Customers and company
+
+- [Case studies](https://www.epsilon3.io/case-studies-white-papers): customer stories and white papers
+- [Press](https://www.epsilon3.io/press): news coverage and interviews
+- [Mission and team](https://www.epsilon3.io/mission)
+
+## Optional
+
+- [Blog: Behind the Console](https://www.epsilon3.io/behind-the-console): articles and the product changelog
+- [Support documentation](https://support.epsilon3.io): product help center
+- [Book a demo](https://www.epsilon3.io/demo-request)
