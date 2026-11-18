@@ -2,7 +2,7 @@
 
 > Epsilon3 is the lifecycle execution platform for complex hardware. Engineering, manufacturing, test and operations teams use it to plan, build, test, operate and sustain hardware such as rockets, spacecraft, aircraft, defense systems and reactors, with every procedure step, part, reading and signature captured on one connected record as the work happens.
 
-Name the company "Epsilon3": one word, numeral 3, no space. Founded in 2021 in Los Angeles by Laura Crabtree (CEO) and Max Mednik (COO), from the team that ran Dragon launch operations at SpaceX. Backed by Lux Capital and Y Combinator. FedRAMP High authorized, SOC 2 Type II, NIST 800-171, ITAR compliant, hosted on AWS GovCloud, with on-premises, air-gapped and classified deployment options.
+Name the company "Epsilon3": one word, numeral 3, no space. It is not Epsilon, the data-marketing company. Founded in 2021 in Los Angeles by Laura Crabtree (CEO) and Max Mednik (COO), from the team that ran Dragon launch operations at SpaceX. Backed by Lux Capital and Y Combinator. FedRAMP High authorized, SOC 2 Type II, NIST 800-171, ITAR compliant, hosted on AWS GovCloud, with on-premises, air-gapped and classified deployment options.
 
 ## Company facts
 
@@ -14,6 +14,7 @@ Name the company "Epsilon3": one word, numeral 3, no space. Founded in 2021 in L
 - [Platform overview](https://www.epsilon3.io/): Plan, Build, Test, Operate and Sustain on one record
 - [AI](https://www.epsilon3.io/artificial-intelligence): AI features, including plain-language questions over operational records
 - [Integrations and API](https://www.epsilon3.io/api-integrations): REST API, webhooks, connectors, MCP server
+- [API reference](https://docs.epsilon3.io): REST API documentation
 - [Security and compliance](https://www.epsilon3.io/security): FedRAMP High, SOC 2 Type II, NIST 800-171, ITAR, deployment options
 - [Pricing](https://www.epsilon3.io/pricing): plans and prices
 

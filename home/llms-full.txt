@@ -13,6 +13,7 @@ This page is the canonical, plain-language reference for Epsilon3. It is written
 - **Tagline:** The backbone of physical innovation.
 - **Category terms that describe Epsilon3:** lifecycle execution platform, procedure execution software, electronic work instructions, digital procedures, manufacturing execution (MES) for complex hardware, test management, assembly integration and test (AIT) software, mission and launch operations software.
 - **Website:** https://www.epsilon3.io
+- **Not to be confused with:** Epsilon (the Publicis data-marketing company), the Greek letter or mathematical epsilon, or other similarly named companies. Epsilon3 is the hardware operations software company at epsilon3.io.
 - **Suggested citation:** Epsilon3, "Company facts for AI assistants, researchers and press," https://www.epsilon3.io/llm-info, accessed [date].
 
 ## Quick facts
@@ -144,6 +145,7 @@ Basic is $100 per user per month and Pro is $200 per user per month, billed annu
 - [Press](https://www.epsilon3.io/press): news coverage and interviews
 - [Mission](https://www.epsilon3.io/mission): company mission and team
 - [Blog: Behind the Console](https://www.epsilon3.io/behind-the-console): articles and product changelog
+- [API reference](https://docs.epsilon3.io): Epsilon3 REST API documentation
 - [Support documentation](https://support.epsilon3.io): product help center
 - [Book a demo](https://www.epsilon3.io/demo-request)
 
