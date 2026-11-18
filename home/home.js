@@ -950,3 +950,10 @@
   if (!('IntersectionObserver' in window)) { load(); if (!reduce) v.play().catch(() => {}); return; }
   new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { load(); if (!reduce) v.play().catch(() => {}); } else v.pause(); }), { rootMargin: '200px', threshold: 0.25 }).observe(v);
   if (reduce) v.controls = true; })();
+
+;
+
+(function () { const f = document.getElementById('brand-film'); if (!f) return; const v = f.querySelector('video'), b = f.querySelector('.bf-play');
+  b.addEventListener('click', () => { const s = v.querySelector('source'); if (s && !s.src) { s.src = s.dataset.src; v.load(); }
+    v.controls = true; f.classList.add('playing'); v.play().catch(() => {}); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting && !v.paused) v.pause(); }), { threshold: 0.2 }).observe(f); })();
