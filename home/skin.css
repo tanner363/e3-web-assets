@@ -1,0 +1,170 @@
+/* Epsilon3 native skin (Phase 1 reskin).
+   Restyles Squarespace 7.1 native blocks to the new design system.
+   Applies only when <html> has the class "e3-skin" (set by the loader in site-wide code injection). */
+
+html.e3-skin {
+  --e3-bg: #1F1F1F; --e3-bg-2: #191919; --e3-bg-3: #161616; --e3-panel: #242424;
+  --e3-ink: #FFFFFF; --e3-ink-2: #BDBDBD; --e3-mute: #8E8E8E; --e3-line: rgba(233,233,233,.14);
+  --e3-g: #2BD900; --e3-g-hover: #A1FF8A;
+  --e3-disp: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --e3-body: 'Source Serif 4', Georgia, serif;
+  --e3-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+html.e3-skin body { background: var(--e3-bg); -webkit-font-smoothing: antialiased; }
+
+/* ---------- Section themes: every theme becomes the dark palette ---------- */
+html.e3-skin #page [data-section-theme],
+html.e3-skin .blog-item-wrapper,
+html.e3-skin [data-section-theme] {
+  --siteBackgroundColor: var(--e3-bg); --sqsp-background-color: var(--e3-bg);
+  --headingExtraLargeColor: var(--e3-ink); --headingLargeColor: var(--e3-ink); --headingMediumColor: var(--e3-ink); --headingSmallColor: var(--e3-ink);
+  --sqsp-heading-1-color: var(--e3-ink); --sqsp-heading-2-color: var(--e3-ink); --sqsp-heading-3-color: var(--e3-ink); --sqsp-heading-4-color: var(--e3-ink);
+  --paragraphLargeColor: var(--e3-ink-2); --paragraphMediumColor: var(--e3-ink-2); --paragraphSmallColor: var(--e3-ink-2);
+  --sqsp-paragraph-1-color: var(--e3-ink-2); --sqsp-paragraph-2-color: var(--e3-ink-2); --sqsp-paragraph-3-color: var(--e3-ink-2);
+  --paragraphLinkColor: var(--e3-g); --sqsp-link-color: var(--e3-g); --headingLinkColor: var(--e3-ink);
+  --primaryButtonBackgroundColor: var(--e3-g); --primaryButtonTextColor: #1F1F1F;
+  --secondaryButtonBackgroundColor: transparent; --secondaryButtonTextColor: var(--e3-ink);
+  --tertiaryButtonBackgroundColor: transparent; --tertiaryButtonTextColor: var(--e3-ink);
+  --tweak-accordion-block-divider-color: var(--e3-line); --tweak-accordion-block-icon-color: var(--e3-ink);
+  --tweak-line-block-line-color: var(--e3-line); --section-divider-stroke-color: var(--e3-line);
+  --tweak-quote-block-text-color: var(--e3-ink); --tweak-quote-block-source-color: var(--e3-mute);
+  --tweak-summary-block-title-color: var(--e3-ink); --tweak-summary-block-excerpt-color: var(--e3-ink-2);
+  --tweak-summary-block-primary-metadata-color: var(--e3-mute); --tweak-summary-block-secondary-metadata-color: var(--e3-mute); --tweak-summary-block-read-more-color: var(--e3-g);
+  --tweak-blog-item-title-color: var(--e3-ink); --tweak-blog-item-meta-color: var(--e3-mute);
+  --tweak-blog-basic-grid-list-title-color: var(--e3-ink); --tweak-blog-basic-grid-list-excerpt-color: var(--e3-ink-2); --tweak-blog-basic-grid-list-meta-color: var(--e3-mute); --tweak-blog-basic-grid-list-read-more-color: var(--e3-g);
+  --tweak-blog-side-by-side-list-title-color: var(--e3-ink); --tweak-blog-side-by-side-list-excerpt-color: var(--e3-ink-2); --tweak-blog-side-by-side-list-meta-color: var(--e3-mute);
+  --tweak-blog-single-column-list-title-color: var(--e3-ink); --tweak-blog-single-column-list-excerpt-color: var(--e3-ink-2); --tweak-blog-single-column-list-meta-color: var(--e3-mute);
+  --tweak-form-block-title-color: var(--e3-ink); --tweak-form-block-description-color: var(--e3-ink-2); --tweak-form-block-caption-color: var(--e3-mute); --tweak-form-block-option-color: var(--e3-ink-2);
+  --tweak-form-block-button-background-color: var(--e3-g); --tweak-form-block-button-text-color: #1F1F1F;
+  --tweak-newsletter-block-title-color: var(--e3-ink); --tweak-newsletter-block-description-color: var(--e3-ink-2);
+  --tweak-newsletter-block-button-background-color: var(--e3-g); --tweak-newsletter-block-button-text-color: #1F1F1F;
+  --list-section-title-color: var(--e3-ink); --list-section-simple-title-color: var(--e3-ink); --list-section-simple-card-title-color: var(--e3-ink); --list-section-simple-card-description-color: var(--e3-ink-2); --list-section-simple-card-color: var(--e3-panel);
+  --list-section-carousel-card-title-color: var(--e3-ink); --list-section-carousel-card-description-color: var(--e3-ink-2); --list-section-carousel-card-color: var(--e3-panel);
+  --image-block-overlap-image-title-color: var(--e3-ink); --image-block-card-image-title-color: var(--e3-ink); --image-block-poster-image-title-color: var(--e3-ink);
+  --social-links-block-main-icon-color: var(--e3-ink); --text-highlight-color: transparent;
+  color: var(--e3-ink-2);
+}
+/* bands alternate like the home page */
+html.e3-skin #page .page-section > .section-background { background-color: var(--e3-bg); }
+html.e3-skin #page .page-section:nth-of-type(even) > .section-background { background-color: var(--e3-bg-2); }
+html.e3-skin .section-background-overlay { background-color: #000 !important; }
+
+/* ---------- Type ---------- */
+html.e3-skin #page h1, html.e3-skin #page h2, html.e3-skin #page h3, html.e3-skin #page h4,
+html.e3-skin .blog-item-wrapper h1, html.e3-skin .blog-item-wrapper h2, html.e3-skin .blog-item-wrapper h3, html.e3-skin .blog-item-wrapper h4 {
+  font-family: var(--e3-disp) !important; color: var(--e3-ink); text-wrap: balance;
+}
+html.e3-skin #page h1, html.e3-skin .blog-item-title h1 {
+  font-weight: 300 !important; text-transform: uppercase; letter-spacing: -.03em !important; line-height: .98 !important;
+  font-size: clamp(38px, 5vw, 72px) !important;
+}
+html.e3-skin #page .sqs-html-content h2 {
+  font-weight: 300 !important; text-transform: uppercase; letter-spacing: -.025em !important; line-height: 1 !important;
+  font-size: clamp(30px, 3.6vw, 52px) !important; padding-top: 16px; border-top: 4px solid var(--e3-ink);
+}
+html.e3-skin #page .sqs-html-content h2 + h2, html.e3-skin #page .sqs-html-content h2:empty { border-top: 0; padding-top: 0; }
+html.e3-skin #page h3 { font-weight: 400 !important; letter-spacing: -.015em !important; line-height: 1.12 !important; font-size: clamp(22px, 2.1vw, 30px) !important; }
+/* h4 and small paragraphs are used as eyebrows across the old pages: set them in the mono label style */
+html.e3-skin #page .sqs-html-content h4,
+html.e3-skin #page .sqs-html-content p.sqsrte-small {
+  font-family: var(--e3-mono) !important; font-weight: 500 !important; font-size: 12px !important; line-height: 1.3 !important;
+  letter-spacing: .14em !important; text-transform: uppercase; color: var(--e3-mute) !important;
+}
+html.e3-skin #page .sqs-html-content h4 *, html.e3-skin #page .sqs-html-content p.sqsrte-small * { color: inherit !important; font: inherit !important; }
+html.e3-skin #page .sqs-html-content p, html.e3-skin #page .sqs-html-content li,
+html.e3-skin .blog-item-content p, html.e3-skin .blog-item-content li {
+  font-family: var(--e3-body) !important; color: var(--e3-ink-2);
+}
+html.e3-skin #page .sqs-html-content p.sqsrte-large { color: var(--e3-ink); }
+html.e3-skin #page .sqs-html-content strong { color: var(--e3-ink); font-weight: 600; }
+/* inline colour spans from the old light design: keep text readable on dark */
+html.e3-skin .sqsrte-text-color--black, html.e3-skin .sqsrte-text-color--darkAccent { color: var(--e3-ink) !important; }
+html.e3-skin .sqsrte-text-color--white, html.e3-skin .sqsrte-text-color--lightAccent { color: var(--e3-ink) !important; }
+html.e3-skin h1 .sqsrte-text-color--accent, html.e3-skin h2 .sqsrte-text-color--accent, html.e3-skin h3 .sqsrte-text-color--accent { color: var(--e3-ink) !important; }
+/* hand-drawn highlight marks go away; green stays signal-only */
+html.e3-skin .sqsrte-text-highlight { background: none !important; }
+html.e3-skin .sqsrte-text-highlight svg, html.e3-skin .sqsrte-text-highlight::before, html.e3-skin .sqsrte-text-highlight::after { display: none !important; }
+html.e3-skin #page .sqs-html-content a, html.e3-skin .blog-item-content a { color: var(--e3-g); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+html.e3-skin #page .sqs-html-content ul li::marker, html.e3-skin .blog-item-content ul li::marker { color: var(--e3-g); }
+html.e3-skin #page blockquote, html.e3-skin .blog-item-content blockquote { border-left: 4px solid var(--e3-ink); padding-left: 20px; color: var(--e3-ink); font-family: var(--e3-disp); }
+
+/* ---------- Buttons ---------- */
+html.e3-skin .sqs-button-element--primary, html.e3-skin .sqs-button-element--secondary, html.e3-skin .sqs-button-element--tertiary,
+html.e3-skin .sqs-block-button-element, html.e3-skin #page .btn, html.e3-skin .newsletter-form-button, html.e3-skin .form-submit-button, html.e3-skin .sqs-editable-button {
+  border-radius: 0 !important; font-family: var(--e3-disp) !important; font-weight: 700 !important; font-size: 13px !important;
+  letter-spacing: .05em !important; text-transform: uppercase !important; line-height: 1 !important;
+  padding: 17px 22px !important; box-shadow: none; transition: background-color .15s, color .15s;
+}
+html.e3-skin .sqs-button-element--primary, html.e3-skin .sqs-block-button-element--primary, html.e3-skin .form-submit-button, html.e3-skin .newsletter-form-button {
+  background-color: var(--e3-g) !important; color: #1F1F1F !important; border: 0 !important;
+}
+html.e3-skin .sqs-button-element--primary:hover, html.e3-skin .sqs-block-button-element--primary:hover, html.e3-skin .form-submit-button:hover { background-color: var(--e3-g-hover) !important; opacity: 1 !important; }
+html.e3-skin .sqs-button-element--secondary, html.e3-skin .sqs-block-button-element--secondary,
+html.e3-skin .sqs-button-element--tertiary, html.e3-skin .sqs-block-button-element--tertiary {
+  background-color: transparent !important; color: var(--e3-ink) !important; border: 0 !important; box-shadow: inset 0 0 0 1px rgba(233,233,233,.45) !important;
+}
+html.e3-skin .sqs-button-element--secondary:hover, html.e3-skin .sqs-block-button-element--secondary:hover,
+html.e3-skin .sqs-button-element--tertiary:hover, html.e3-skin .sqs-block-button-element--tertiary:hover { background-color: var(--e3-ink) !important; color: #1F1F1F !important; opacity: 1 !important; }
+
+/* ---------- Images, video, shapes: square corners, no drop shadows ---------- */
+html.e3-skin #page .sqs-block-image *, html.e3-skin #page .sqs-block-video *, html.e3-skin #page .fluid-image-container, html.e3-skin #page .fluid-image-component-root,
+html.e3-skin .blog-item-wrapper img, html.e3-skin .summary-thumbnail-container, html.e3-skin .blog-item img {
+  border-radius: 0 !important;
+}
+html.e3-skin #page .sqs-block-shape .sqs-shape { border-radius: 0 !important; }
+
+/* ---------- Accordion, lines, quotes ---------- */
+html.e3-skin .accordion-item__title { font-family: var(--e3-disp) !important; font-weight: 500 !important; color: var(--e3-ink) !important; }
+html.e3-skin .accordion-item__description, html.e3-skin .accordion-item__description p { font-family: var(--e3-body) !important; color: var(--e3-ink-2) !important; }
+html.e3-skin .accordion-divider { background-color: var(--e3-line) !important; color: var(--e3-line) !important; }
+html.e3-skin .sqs-block-horizontalrule hr, html.e3-skin hr { border-color: var(--e3-line) !important; background-color: var(--e3-line) !important; }
+html.e3-skin .sqs-block-quote blockquote { font-family: var(--e3-disp) !important; font-weight: 300 !important; color: var(--e3-ink) !important; }
+
+/* ---------- Native forms (Squarespace form blocks) ---------- */
+html.e3-skin .sqs-block-form input[type=text], html.e3-skin .sqs-block-form input[type=email], html.e3-skin .sqs-block-form input[type=tel],
+html.e3-skin .sqs-block-form textarea, html.e3-skin .sqs-block-form select, html.e3-skin .newsletter-form-field-element {
+  border-radius: 0 !important; background: var(--e3-bg-3) !important; color: var(--e3-ink) !important; border: 1px solid var(--e3-line) !important; font-family: var(--e3-disp) !important;
+}
+html.e3-skin .sqs-block-form label, html.e3-skin .sqs-block-form .title { font-family: var(--e3-mono) !important; font-size: 11px !important; letter-spacing: .08em; text-transform: uppercase; color: var(--e3-mute) !important; }
+
+/* ---------- HubSpot forms embedded on native pages (same treatment as the home demo card) ---------- */
+html.e3-skin #page .hbspt-form, html.e3-skin #page .hs-form { font-family: var(--e3-disp) !important; color: var(--e3-ink-2); }
+html.e3-skin #page .hs-form label { font: 500 11px/1.3 var(--e3-mono) !important; letter-spacing: .08em; text-transform: uppercase; color: var(--e3-mute) !important; }
+html.e3-skin #page .hs-form .hs-input:not([type=checkbox]):not([type=radio]) {
+  width: 100% !important; box-sizing: border-box; height: 48px; padding: 0 14px; border-radius: 0 !important;
+  background: var(--e3-bg-3) !important; color: var(--e3-ink) !important; border: 1px solid var(--e3-line) !important; font: 400 15px var(--e3-disp) !important;
+}
+html.e3-skin #page .hs-form textarea.hs-input { height: 120px; padding: 12px 14px; }
+html.e3-skin #page .hs-form .hs-input:focus { outline: 2px solid var(--e3-g); outline-offset: 0; }
+html.e3-skin #page .hs-form .hs-button { background: var(--e3-g) !important; color: #1F1F1F !important; border: 0 !important; border-radius: 0 !important; height: 48px; padding: 0 22px !important; font: 700 13px/1 var(--e3-disp) !important; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; }
+html.e3-skin #page .hs-form .hs-button:hover { background: var(--e3-g-hover) !important; }
+html.e3-skin #page .hs-form .hs-error-msg, html.e3-skin #page .hs-form .hs-error-msgs label { color: #FF7A66 !important; text-transform: none; letter-spacing: 0; }
+html.e3-skin #page .hs-form .legal-consent-container, html.e3-skin #page .hs-form .hs-richtext { color: var(--e3-mute) !important; font: 400 12px/1.5 var(--e3-disp) !important; }
+
+/* ---------- Summary blocks and blog lists ---------- */
+html.e3-skin .summary-title a, html.e3-skin .blog-title a, html.e3-skin .blog-basic-grid--text .blog-title a { font-family: var(--e3-disp) !important; color: var(--e3-ink) !important; }
+html.e3-skin .summary-metadata, html.e3-skin .blog-meta-section, html.e3-skin .blog-meta-item, html.e3-skin .blog-item-meta-wrapper, html.e3-skin .blog-date, html.e3-skin .blog-categories-list {
+  font-family: var(--e3-mono) !important; font-size: 11px !important; letter-spacing: .08em !important; text-transform: uppercase; color: var(--e3-mute) !important;
+}
+html.e3-skin .summary-excerpt, html.e3-skin .blog-excerpt, html.e3-skin .blog-excerpt p { font-family: var(--e3-body) !important; color: var(--e3-ink-2) !important; }
+html.e3-skin .summary-read-more-link, html.e3-skin .blog-more-link { font-family: var(--e3-disp) !important; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; font-size: 12px !important; color: var(--e3-g) !important; }
+
+/* ---------- Blog post template ---------- */
+html.e3-skin .blog-item-wrapper, html.e3-skin article.entry { color: var(--e3-ink-2); }
+html.e3-skin .blog-item-title h1 { font-size: clamp(34px, 4.4vw, 60px) !important; }
+html.e3-skin .blog-item-content h2 { font-weight: 300 !important; text-transform: uppercase; letter-spacing: -.02em !important; font-size: clamp(26px, 2.8vw, 38px) !important; line-height: 1.04 !important; padding-top: 14px; border-top: 3px solid var(--e3-ink); margin-top: 1.6em; }
+html.e3-skin .blog-item-content h3 { font-weight: 500 !important; font-size: clamp(20px, 1.8vw, 26px) !important; letter-spacing: -.01em !important; }
+html.e3-skin .blog-item-content h4 { font-family: var(--e3-mono) !important; font-weight: 500 !important; font-size: 12px !important; letter-spacing: .14em !important; text-transform: uppercase; color: var(--e3-mute) !important; }
+html.e3-skin .blog-item-content p, html.e3-skin .blog-item-content li { font-size: 18px; line-height: 1.6; }
+html.e3-skin .blog-item-content pre, html.e3-skin .blog-item-content code { font-family: var(--e3-mono) !important; background: var(--e3-bg-3) !important; color: var(--e3-ink) !important; border-radius: 0 !important; }
+html.e3-skin .blog-item-content table { border-collapse: collapse; } html.e3-skin .blog-item-content td, html.e3-skin .blog-item-content th { border-bottom: 1px solid var(--e3-line); padding: 10px 12px; }
+html.e3-skin .item-pagination-link, html.e3-skin .item-pagination-title { font-family: var(--e3-disp) !important; color: var(--e3-ink) !important; }
+html.e3-skin .item-pagination-prev-next { font-family: var(--e3-mono) !important; font-size: 11px !important; letter-spacing: .1em; color: var(--e3-mute) !important; }
+html.e3-skin .blog-item-author-profile-wrapper { border-color: var(--e3-line) !important; }
+
+/* tables and inline code inside any text block */
+html.e3-skin #page .sqs-html-content code { font-family: var(--e3-mono) !important; background: var(--e3-bg-3); padding: 1px 5px; }
+
+/* selection and focus */
+html.e3-skin ::selection { background: var(--e3-g); color: #1F1F1F; }
+html.e3-skin a:focus-visible, html.e3-skin button:focus-visible, html.e3-skin input:focus-visible { outline: 2px solid var(--e3-g); outline-offset: 3px; }
