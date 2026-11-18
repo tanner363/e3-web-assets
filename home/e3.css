@@ -350,6 +350,7 @@
 .e3 .ladder li { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: center; padding: 16px 0; border-top: 1px solid var(--line); } .e3 .ladder li:last-child { border-bottom: 1px solid var(--line); }
 .e3 .ladder .lv { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; } .e3 .ladder .lv i { height: 22px; background: rgba(233,233,233,.12); } .e3 .ladder .lv i.on { background: var(--g); }
 .e3 .ladder h3 { margin: 0; font: 400 26px/1 var(--f-body); } .e3 .ladder p { margin: 6px 0 0; color: var(--ink-2); font: 400 15px/1.45 var(--f-body); }
+.e3 .ai-film { overflow: hidden; background: #101010; } .e3 .ai-film video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .e3 .ai-pts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 32px; }
 .e3 .ai-pts article { padding: 24px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line); }
 .e3 .ai-pts .tag { color: var(--g); font: 600 11px/1 var(--f-disp); letter-spacing: .08em; text-transform: uppercase; }

@@ -941,3 +941,12 @@
   let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 150); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw); addEventListener('load', draw); draw();
 })();
+
+;
+
+(function () { const v = document.getElementById('ai-film'); if (!v) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const load = () => { const s = v.querySelector('source'); if (s && !s.src) { s.src = s.dataset.src; v.load(); } };
+  if (!('IntersectionObserver' in window)) { load(); if (!reduce) v.play().catch(() => {}); return; }
+  new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { load(); if (!reduce) v.play().catch(() => {}); } else v.pause(); }), { rootMargin: '200px', threshold: 0.25 }).observe(v);
+  if (reduce) v.controls = true; })();
